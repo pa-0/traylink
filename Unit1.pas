@@ -88,7 +88,11 @@ procedure TForm1.BuildPopup;
 
         p := TPath.Combine(ShortcutPath, sr.Name);
         mi := TMenuItem.Create(TrayPopup);
-        mi.Caption := sr.Name;
+        if ExtractFileExt(sr.Name) = '.lnk' then begin
+          mi.Caption := Copy(sr.Name, 1, Length(sr.Name) - 4);
+        end else begin
+          mi.Caption := sr.Name;
+        end;
         Parent.Insert(Index, mi);
 
         if sr.Attr = faDirectory then begin
