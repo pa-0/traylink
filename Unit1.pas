@@ -72,32 +72,48 @@ const
   RegRoot = 'Software\Zencode\TrayLink';
 
 procedure TForm1.BuildPopup;
-var
-  sr : TSearchRec;
-  f : TRunFile;
-  mi : TMenuItem;
+
+  procedure AddDirectory(Path : string; Parent : TMenuItem; Index : Integer);
+  var
+    sr : TSearchRec;
+    p : string;
+    f : TRunFile;
+    mi : TMenuItem;
+
+  begin
+    if FindFirst(TPath.Combine(Path, '*.*'), faAnyFile, sr) = 0 then begin
+      repeat
+        if (sr.Name = '.') or (sr.Name = '..') then
+          continue;
+
+        p := TPath.Combine(ShortcutPath, sr.Name);
+        mi := TMenuItem.Create(TrayPopup);
+        mi.Caption := sr.Name;
+        Parent.Insert(Index, mi);
+
+        if sr.Attr = faDirectory then begin
+          AddDirectory(p, mi, 0);
+        end else begin
+          f := TRunFile.Create;
+          f.Path := p;
+          Files.Add(f);
+
+          mi.Tag := NativeInt(f);
+          mi.OnClick := PopupItemClick;
+        end;
+        Inc(Index);
+      until FindNext(sr) <> 0;
+
+      FindClose(sr);
+    end;
+  end;
 
 begin
   Files.Clear;
   if Length(ShortCutPath) = 0 then
     Exit;
 
-  if FindFirst(TPath.Combine(ShortcutPath, '*.*'), faAnyFile, sr) = 0 then begin
-    repeat
-      if sr.Attr <> faDirectory then begin
-        f := TRunFile.Create;
-        f.Path := TPath.Combine(ShortcutPath, sr.Name);
-        Files.Add(f);
-
-        mi := TMenuItem.Create(TrayPopup);
-        mi.Caption := sr.Name;
-        mi.Tag := NativeInt(f);
-        mi.OnClick := PopupItemClick;
-        TrayPopup.Items.Insert(TrayPopup.Items.Count - DefaultItemCount, mi);
-      end;
-    until FindNext(sr) <> 0;
-    FindClose(sr);
-  end;
+  AddDirectory(ShortcutPath, TrayPopup.Items, 0);
 end;
 
 procedure TForm1.ChangeTimerTimer(Sender: TObject);
