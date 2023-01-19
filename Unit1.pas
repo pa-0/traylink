@@ -42,6 +42,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure PathEditChange(Sender: TObject);
     procedure PopupItemClick(Sender: TObject);
+    procedure TrayIcon1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
     procedure TrayPopupPopup(Sender: TObject);
   private
     Files : TRunFileList;
@@ -199,6 +200,12 @@ var
 begin
   f := TRunFile((Sender as TMenuItem).Tag);
   ShellExecute(0, 'open', PChar(f.Path), nil, nil, SW_SHOW);
+end;
+
+procedure TForm1.TrayIcon1MouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+  if Button = mbLeft then
+    TrayPopup.Popup(X, Y);
 end;
 
 procedure TForm1.TrayPopupPopup(Sender: TObject);
