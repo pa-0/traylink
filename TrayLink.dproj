@@ -53,6 +53,9 @@
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>TrayLink</SanitizedProjectName>
+        <DCC_UnitSearchPath>$(Source)\Comps\Evisions\Source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>EnImg;JvNet;TeeLanguage8;vclwinx;DataSnapServer;bdertl;evitms;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;qrpp;appanalytics;IndyProtocols;vclx;SynEditCore;evipasctl;IndyIPClient;dbxcds;vcledge;tmsxls;tmsdb;bindcompvclwinx;frxFD;frxIntIO;fsADO;SVG2PackageCommon;MPCommonLib;emsedge;bindcompfmx;DBXFirebirdDriver;frxADO;JvBands;inetdb;evivt;Tee8QR4;JvAppFrm;FireDACSqliteDriver;DbxClientDriver;evipic;FireDACASADriver;tms;JclVcl;soapmidas;TeeGL8;vclactnband;TeeUI8;fmxFireDAC;dbexpress;gtDocEng;FrameViewer;FireDACInfxDriver;SSHBBoxCli;Jcl;DBXMySQLDriver;JvManagedThreads;VclSmp;inet;DataSnapCommon;evipasvcl;PGPLDAPBBox;SynEdit_Highlighters;vcltouch;fmxase;frxcs;JvPluginSystem;DBXOdbcDriver;JvDB;dbrtl;MPEasyListView;FireDACDBXDriver;FireDACOracleDriver;fsTee;fmxdae;JvTimeFramework;FireDACMSAccDriver;JvCustom;CustomIPTransport;FireDACMSSQLDriver;eviimg;SFTPBBoxCli;JvSystem;DataSnapIndy10ServerTransport;SynEdit_DB;JvControls;JclDeveloperTools;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;fsDB;FireDACMongoDBDriver;JvCrypt;JvJans;IndySystem;JvMM;JvWizards;eviipc;FireDACTDataDriver;PGPBBox;vcldb;TeeWorld8;TeePro8;frxTee;PngComponents;Tee8;vclFireDAC;JvCore;JvPageComps;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;qrdbase;QR4Run;IndyCore;RESTBackendComponents;LDAPBBox;fsFD;bindcompdbx;AbbreviaVCL;evipas;rtl;FireDACMySQLDriver;gtQRExp;FireDACADSDriver;RESTComponents;qrd;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;BaseBBox;frxDBX;DBXSybaseASEDriver;SVG2PackageVcl;JvDotNetCtrls;JvHMI;DBXDb2Driver;frx;JvRuntimeDesign;frxe;JvXPCtrls;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;PivotCube;TeeImage8;tmsex;fsBDE;bindcompvcl;dsnap;JvStdCtrls;JvCmp;fs;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;JvDlgs;JvDocking;JvPrintPreview;fmxobj;bindcompvclsmp;DataSnapNativeClient;TeeDB8;frxDB;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -88,6 +91,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>TrayLink_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
